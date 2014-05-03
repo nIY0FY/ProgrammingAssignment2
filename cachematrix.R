@@ -1,9 +1,9 @@
 ## Matrix inversion is usually a costly computation, functions below are an approach
-## to save computing time by caching the inverse of a matrix, and an based upon function
-## to cache mean of vector provided by R.D. Peng
+## to save computing time by caching the inverse of a matrix, and are based upon
+## functions to cache mean of vectors provided by R.D. Peng
 
-## 'makeCacheMatrix' creates an R object that can storage a matrix, its inverse
-## and methods to deal with them
+## 'makeCacheMatrix' creates an R object that can storage a matrix,
+## its inverse and methods to deal with them.
 makeCacheMatrix <- function(x = matrix()) {
     # This variable store the inverse of Matrix x
     inverseMx <- NULL
@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
     # This method store an inverse matrix computed
     setInverse <- function(inverse) inverseMx <<- inverse
 
-    # This method returns an inverse matrix "cached" previouly
+    # This method returns an inverse matrix "cached" previously
     getInverse <- function() inverseMx
     
     # function returns a list
@@ -32,9 +32,9 @@ makeCacheMatrix <- function(x = matrix()) {
     )
 }
 
-## 'cacheSolve' returns inverse of an invertible matrix stored previously in an object
-## created with 'makeCacheMatrix', inverse is computed only during first execution
-## and the matrix has not changed.
+## 'cacheSolve' returns inverse of an invertible matrix stored previously
+## in an object created with 'makeCacheMatrix', inverse is computed only
+## during first execution and meanwhile the matrix has not changed.
 cacheSolve <- function(x, ...) {
     # Check if Matrix x was cached previously and return it in such case
     inverseMx <- x$getInverse()
